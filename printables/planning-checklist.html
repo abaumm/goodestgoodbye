@@ -544,50 +544,66 @@ body {
 }
 
 
-/* Force single printable view */
-body { background: #F5F1EB; padding: 1rem; }
-.screen-nav { display: none; }
-@media print {
-  body { background: none; padding: 0; }
-  .back-link { display: none; }
-  @page { size: letter; margin: 0; }
-  .printable { 
-    width: 100%; min-height: 100vh; height: 100vh;
-    margin: 0; border: none; padding: 0.6in 0.75in;
-    page-break-after: avoid;
-  }
+
+/* Individual printable page overrides */
+body {
+  background: #F5F1EB;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.screen-nav { display: none !important; }
+
+.page-controls {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .back-link {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
   color: #5A5650;
   text-decoration: none;
-  padding: 0.5rem 0;
 }
 .back-link:hover { color: #2C2A27; }
 .print-btn {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1.5rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
-  padding: 0.625rem 1.5rem;
-  background: #5C6B52;
-  border: 1px solid #5C6B52;
+  padding: 0.5rem 1.25rem;
+  background: #4A5A40;
+  border: 1px solid #4A5A40;
   color: #F5F1EB;
   cursor: pointer;
   letter-spacing: 0.03em;
-  width: fit-content;
+  white-space: nowrap;
 }
 .print-btn:hover { background: #2C2A27; border-color: #2C2A27; }
+
+@media print {
+  body { background: none; padding: 0; margin: 0; }
+  .page-controls { display: none; }
+  @page { size: letter; margin: 0; }
+  .printable {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    border: none !important;
+    padding: 0.6in 0.75in;
+    page-break-after: avoid;
+    break-after: avoid;
+    background: white !important;
+  }
+}
 </style>
 </head>
 <body>
-<a href="index.html" class="back-link">← Back to all printables</a>
-<button class="print-btn" onclick="window.print()">Print this page</button>
+<div class="page-controls">
+  <a href="index.html" class="back-link">← Back to all printables</a>
+  <button class="print-btn" onclick="window.print()">Print this page</button>
+</div>
 <div class="printable">
   <div class="p-header">
     <div class="p-header-left">
@@ -597,6 +613,65 @@ body { background: #F5F1EB; padding: 1rem; }
     <div class="p-brand">Goodest Goodbye<br>goodestgoodbye.com</div>
   </div>
 
+  <p style="font-size: 0.8125rem; color: var(--text-mid); font-style: italic; margin-bottom: 1.25rem; line-height: 1.6;">Working through these in advance — while you have time — is easier than in the hours before. You don't have to do it all at once.</p>
 
+  <div class="checklist-cols">
+    <div>
+      <div class="checklist-group-title">In the days before</div>
+
+      <div class="checklist-item"><div class="checklist-box"></div>Schedule the appointment and confirm timing with the provider</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Decide where in your home the appointment will take place</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Gather a soft blanket or bed they love for the space</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Decide who will be present — family, children, other pets</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Tell children in age-appropriate language (see separate guide)</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Notify close family members who would want to say goodbye</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Request paw print or fur clipping if desired — arrange kit or ask vet</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Decide on aftercare: private cremation / communal cremation / home burial / other</div>
+      <p class="checklist-write" style="margin-left: 1.375rem; font-size: 0.6875rem; color: var(--text-muted);">Aftercare provider:</p>
+      <div class="checklist-write"></div>
+      <div class="checklist-item" style="margin-top: 0.5rem;"><div class="checklist-box"></div>Confirm aftercare arrangements with provider</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Take photos and videos — ordinary moments you'll want later</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Let your pet do what they love, if they're able</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Arrange time off work if needed</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Confirm payment method with the provider</div>
+
+      <div class="checklist-group-title" style="margin-top: 1.25rem;">The morning of</div>
+
+      <div class="checklist-item"><div class="checklist-box"></div>Prepare the space — blanket, low light, familiar smells</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Keep the home calm and quiet before the vet arrives</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Feed your pet whatever they want, if they're eating</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Have the paw print kit accessible if using</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Make sure children are prepared and have a trusted adult with them</div>
+    </div>
+
+    <div>
+      <div class="checklist-group-title">After the appointment</div>
+
+      <div class="checklist-item"><div class="checklist-box"></div>Take as much time as you need before the vet leaves</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Confirm aftercare pickup time if applicable</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Put away food bowls, beds, and toys when you are ready — not before</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Notify family, friends, and your pet's regular vet</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Cancel any upcoming vet appointments</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Cancel recurring food, medication, or subscription deliveries</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Notify pet insurance provider if applicable</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Allow other pets in the household to investigate the space if they wish</div>
+
+      <div class="checklist-group-title" style="margin-top: 1.25rem;">When you are ready</div>
+
+      <div class="checklist-item"><div class="checklist-box"></div>Complete the memorial information sheet (see separate printable)</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Order or arrange any keepsakes — portrait, urn, memorial item</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Consider a small memorial — a planted tree, a framed photo, a note</div>
+      <div class="checklist-item"><div class="checklist-box"></div>Begin the grief check-in journal if that feels useful</div>
+
+      <div class="checklist-group-title" style="margin-top: 1.25rem;">Notes</div>
+      <div style="border: 0.5px solid var(--border-light); padding: 0.5rem; min-height: 5rem; background: white;"></div>
+    </div>
+  </div>
+
+  <div class="p-footer">
+    <p class="p-footer-note">You will not do all of this perfectly. That is not the point. The point is that you loved your pet and you are trying to do right by them.</p>
+    <span class="p-footer-brand"><span class="paw-print paw-dog"></span><span class="paw-print paw-cat"></span>Goodest Goodbye</span>
+  </div>
+</div>
 </body>
 </html>

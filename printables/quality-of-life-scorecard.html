@@ -544,50 +544,66 @@ body {
 }
 
 
-/* Force single printable view */
-body { background: #F5F1EB; padding: 1rem; }
-.screen-nav { display: none; }
-@media print {
-  body { background: none; padding: 0; }
-  .back-link { display: none; }
-  @page { size: letter; margin: 0; }
-  .printable { 
-    width: 100%; min-height: 100vh; height: 100vh;
-    margin: 0; border: none; padding: 0.6in 0.75in;
-    page-break-after: avoid;
-  }
+
+/* Individual printable page overrides */
+body {
+  background: #F5F1EB;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.screen-nav { display: none !important; }
+
+.page-controls {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .back-link {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
   color: #5A5650;
   text-decoration: none;
-  padding: 0.5rem 0;
 }
 .back-link:hover { color: #2C2A27; }
 .print-btn {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1.5rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
-  padding: 0.625rem 1.5rem;
-  background: #5C6B52;
-  border: 1px solid #5C6B52;
+  padding: 0.5rem 1.25rem;
+  background: #4A5A40;
+  border: 1px solid #4A5A40;
   color: #F5F1EB;
   cursor: pointer;
   letter-spacing: 0.03em;
-  width: fit-content;
+  white-space: nowrap;
 }
 .print-btn:hover { background: #2C2A27; border-color: #2C2A27; }
+
+@media print {
+  body { background: none; padding: 0; margin: 0; }
+  .page-controls { display: none; }
+  @page { size: letter; margin: 0; }
+  .printable {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    border: none !important;
+    padding: 0.6in 0.75in;
+    page-break-after: avoid;
+    break-after: avoid;
+    background: white !important;
+  }
+}
 </style>
 </head>
 <body>
-<a href="index.html" class="back-link">← Back to all printables</a>
-<button class="print-btn" onclick="window.print()">Print this page</button>
+<div class="page-controls">
+  <a href="index.html" class="back-link">← Back to all printables</a>
+  <button class="print-btn" onclick="window.print()">Print this page</button>
+</div>
 <div class="printable">
   <div class="p-header">
     <div class="p-header-left">
@@ -597,6 +613,117 @@ body { background: #F5F1EB; padding: 1rem; }
     <div class="p-brand">Goodest Goodbye<br>goodestgoodbye.com</div>
   </div>
 
+  <p class="scorecard-intro">Score each dimension daily using 0–4. At a glance, you are looking for the overall direction — not a single number. More good days than bad is the guiding question.</p>
 
+  <div class="score-key">
+    <div class="score-key-item"><div class="score-key-dot">0</div> Struggling significantly</div>
+    <div class="score-key-item"><div class="score-key-dot">1</div> Difficult</div>
+    <div class="score-key-item"><div class="score-key-dot">2</div> Mixed</div>
+    <div class="score-key-item"><div class="score-key-dot">3</div> Managing well</div>
+    <div class="score-key-item"><div class="score-key-dot">4</div> Comfortable</div>
+  </div>
+
+  <div class="date-row">
+    <span class="date-label">Pet's name:</span>
+    <div class="date-box"></div>
+    <span class="date-label" style="margin-left: 0.75rem;">Week beginning:</span>
+    <div class="date-box" style="max-width: 120px;"></div>
+  </div>
+
+  <table class="scorecard-table">
+    <thead>
+      <tr>
+        <th class="dim-header">Dimension</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="dim-cell">
+          <span class="dim-name">Comfort</span>
+          <span class="dim-sub">Pain, resting ease</span>
+        </td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="dim-cell">
+          <span class="dim-name">Eating</span>
+          <span class="dim-sub">Food and water intake</span>
+        </td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="dim-cell">
+          <span class="dim-name">Hygiene</span>
+          <span class="dim-sub">Dignity, cleanliness</span>
+        </td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="dim-cell">
+          <span class="dim-name">Mobility</span>
+          <span class="dim-sub">Movement, access</span>
+        </td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="dim-cell">
+          <span class="dim-name">Happiness</span>
+          <span class="dim-sub">Engagement, connection</span>
+        </td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="dim-cell">
+          <span class="dim-name">Overall pattern</span>
+          <span class="dim-sub">Good day vs. difficult day</span>
+        </td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="dim-cell">
+          <span class="dim-name">Your gut sense</span>
+          <span class="dim-sub">Your instinct today</span>
+        </td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="dim-cell" style="border-top: 1px solid var(--border);">
+          <span class="dim-name" style="color: var(--sage);">Daily total</span>
+          <span class="dim-sub">Max 28</span>
+        </td>
+        <td style="border-top: 1px solid var(--border); background: var(--sage-light);"></td>
+        <td style="border-top: 1px solid var(--border); background: var(--sage-light);"></td>
+        <td style="border-top: 1px solid var(--border); background: var(--sage-light);"></td>
+        <td style="border-top: 1px solid var(--border); background: var(--sage-light);"></td>
+        <td style="border-top: 1px solid var(--border); background: var(--sage-light);"></td>
+        <td style="border-top: 1px solid var(--border); background: var(--sage-light);"></td>
+        <td style="border-top: 1px solid var(--border); background: var(--sage-light);"></td>
+        <td style="border-top: 1px solid var(--border);"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 0.75rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; line-height: 1.5;">A score above 18 most days suggests your pet is coping. Between 10–18 suggests increasing difficulty. Below 10 on most days is a meaningful signal worth discussing with your vet. Numbers are a guide, not a verdict — the overall direction matters more than any single day.</p>
+
+  <div class="p-footer">
+    <p class="p-footer-note">This scorecard is a tool for observation, not diagnosis. Please discuss your observations with your veterinarian. Photocopy as needed.</p>
+    <span class="p-footer-brand"><span class="paw-print paw-dog"></span><span class="paw-print paw-cat"></span>Goodest Goodbye</span>
+  </div>
+</div>
 </body>
 </html>

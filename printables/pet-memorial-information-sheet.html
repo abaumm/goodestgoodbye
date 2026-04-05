@@ -544,50 +544,66 @@ body {
 }
 
 
-/* Force single printable view */
-body { background: #F5F1EB; padding: 1rem; }
-.screen-nav { display: none; }
-@media print {
-  body { background: none; padding: 0; }
-  .back-link { display: none; }
-  @page { size: letter; margin: 0; }
-  .printable { 
-    width: 100%; min-height: 100vh; height: 100vh;
-    margin: 0; border: none; padding: 0.6in 0.75in;
-    page-break-after: avoid;
-  }
+
+/* Individual printable page overrides */
+body {
+  background: #F5F1EB;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.screen-nav { display: none !important; }
+
+.page-controls {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .back-link {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
   color: #5A5650;
   text-decoration: none;
-  padding: 0.5rem 0;
 }
 .back-link:hover { color: #2C2A27; }
 .print-btn {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1.5rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
-  padding: 0.625rem 1.5rem;
-  background: #5C6B52;
-  border: 1px solid #5C6B52;
+  padding: 0.5rem 1.25rem;
+  background: #4A5A40;
+  border: 1px solid #4A5A40;
   color: #F5F1EB;
   cursor: pointer;
   letter-spacing: 0.03em;
-  width: fit-content;
+  white-space: nowrap;
 }
 .print-btn:hover { background: #2C2A27; border-color: #2C2A27; }
+
+@media print {
+  body { background: none; padding: 0; margin: 0; }
+  .page-controls { display: none; }
+  @page { size: letter; margin: 0; }
+  .printable {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    border: none !important;
+    padding: 0.6in 0.75in;
+    page-break-after: avoid;
+    break-after: avoid;
+    background: white !important;
+  }
+}
 </style>
 </head>
 <body>
-<a href="index.html" class="back-link">← Back to all printables</a>
-<button class="print-btn" onclick="window.print()">Print this page</button>
+<div class="page-controls">
+  <a href="index.html" class="back-link">← Back to all printables</a>
+  <button class="print-btn" onclick="window.print()">Print this page</button>
+</div>
 <div class="printable">
   <div class="p-header">
     <div class="p-header-left">
@@ -597,6 +613,107 @@ body { background: #F5F1EB; padding: 1rem; }
     <div class="p-brand">Goodest Goodbye<br>goodestgoodbye.com</div>
   </div>
 
+  <div class="memorial-body">
 
+    <div class="memorial-cols">
+      <div>
+        <div class="memorial-field">
+          <span class="memorial-label">Their name</span>
+          <div class="memorial-line" style="height: 2rem; border-bottom: 1px solid var(--border);"></div>
+        </div>
+        <div class="memorial-field">
+          <span class="memorial-label">Species and breed</span>
+          <div class="memorial-line"></div>
+        </div>
+        <div class="memorial-field">
+          <span class="memorial-label">Date of birth or estimated age when we found them</span>
+          <div class="memorial-line"></div>
+        </div>
+        <div class="memorial-field">
+          <span class="memorial-label">Date they left us</span>
+          <div class="memorial-line"></div>
+        </div>
+        <div class="memorial-field">
+          <span class="memorial-label">Where they are now</span>
+          <div class="memorial-line"></div>
+        </div>
+      </div>
+      <div>
+        <div class="photo-box">
+          <span class="photo-box-label">A favorite photo</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="memorial-divider">
+
+    <div class="memorial-field">
+      <p class="memorial-prompt">How we found each other</p>
+      <div class="memorial-lines">
+        <div class="memorial-line"></div>
+        <div class="memorial-line"></div>
+        <div class="memorial-line"></div>
+      </div>
+    </div>
+
+    <div class="memorial-cols" style="margin-top: 0.25rem;">
+      <div class="memorial-field">
+        <p class="memorial-prompt">Their favorite things</p>
+        <div class="memorial-lines">
+          <div class="memorial-line"></div>
+          <div class="memorial-line"></div>
+          <div class="memorial-line"></div>
+          <div class="memorial-line"></div>
+        </div>
+      </div>
+      <div class="memorial-field">
+        <p class="memorial-prompt">Their funny habits</p>
+        <div class="memorial-lines">
+          <div class="memorial-line"></div>
+          <div class="memorial-line"></div>
+          <div class="memorial-line"></div>
+          <div class="memorial-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="memorial-field" style="margin-top: 0.5rem;">
+      <p class="memorial-prompt">What they taught me</p>
+      <div class="memorial-lines">
+        <div class="memorial-line"></div>
+        <div class="memorial-line"></div>
+        <div class="memorial-line"></div>
+      </div>
+    </div>
+
+    <div class="memorial-field">
+      <p class="memorial-prompt">What I want to remember most</p>
+      <div class="memorial-lines">
+        <div class="memorial-line"></div>
+        <div class="memorial-line"></div>
+        <div class="memorial-line"></div>
+        <div class="memorial-line"></div>
+      </div>
+    </div>
+
+    <div class="memorial-field">
+      <p class="memorial-prompt">Written by</p>
+      <div style="display: flex; gap: 2rem;">
+        <div style="flex: 2;"><div class="memorial-line"></div></div>
+        <div style="flex: 1;"><div class="memorial-line"></div></div>
+      </div>
+      <div style="display: flex; gap: 2rem; margin-top: 0.25rem;">
+        <div style="flex: 2; font-size: 0.6875rem; color: var(--text-muted);">Name</div>
+        <div style="flex: 1; font-size: 0.6875rem; color: var(--text-muted);">Date</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p-footer">
+    <p class="p-footer-note">Print one for each member of your family, or complete this together. Frame it, tuck it away, or pass it on.</p>
+    <span class="p-footer-brand"><span class="paw-print paw-dog"></span><span class="paw-print paw-cat"></span>Goodest Goodbye</span>
+  </div>
+</div>
 </body>
 </html>

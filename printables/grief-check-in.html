@@ -544,50 +544,66 @@ body {
 }
 
 
-/* Force single printable view */
-body { background: #F5F1EB; padding: 1rem; }
-.screen-nav { display: none; }
-@media print {
-  body { background: none; padding: 0; }
-  .back-link { display: none; }
-  @page { size: letter; margin: 0; }
-  .printable { 
-    width: 100%; min-height: 100vh; height: 100vh;
-    margin: 0; border: none; padding: 0.6in 0.75in;
-    page-break-after: avoid;
-  }
+
+/* Individual printable page overrides */
+body {
+  background: #F5F1EB;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.screen-nav { display: none !important; }
+
+.page-controls {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .back-link {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
   color: #5A5650;
   text-decoration: none;
-  padding: 0.5rem 0;
 }
 .back-link:hover { color: #2C2A27; }
 .print-btn {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1.5rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
-  padding: 0.625rem 1.5rem;
-  background: #5C6B52;
-  border: 1px solid #5C6B52;
+  padding: 0.5rem 1.25rem;
+  background: #4A5A40;
+  border: 1px solid #4A5A40;
   color: #F5F1EB;
   cursor: pointer;
   letter-spacing: 0.03em;
-  width: fit-content;
+  white-space: nowrap;
 }
 .print-btn:hover { background: #2C2A27; border-color: #2C2A27; }
+
+@media print {
+  body { background: none; padding: 0; margin: 0; }
+  .page-controls { display: none; }
+  @page { size: letter; margin: 0; }
+  .printable {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    border: none !important;
+    padding: 0.6in 0.75in;
+    page-break-after: avoid;
+    break-after: avoid;
+    background: white !important;
+  }
+}
 </style>
 </head>
 <body>
-<a href="index.html" class="back-link">← Back to all printables</a>
-<button class="print-btn" onclick="window.print()">Print this page</button>
+<div class="page-controls">
+  <a href="index.html" class="back-link">← Back to all printables</a>
+  <button class="print-btn" onclick="window.print()">Print this page</button>
+</div>
 <div class="printable">
   <div class="p-header">
     <div class="p-header-left">
@@ -597,6 +613,78 @@ body { background: #F5F1EB; padding: 1rem; }
     <div class="p-brand">Goodest Goodbye<br>goodestgoodbye.com</div>
   </div>
 
+  <p style="font-size: 0.8125rem; color: var(--text-mid); font-style: italic; margin-bottom: 1.25rem; line-height: 1.6;">Not therapy. Just five questions to sit with once a week, for as long as they're useful. Photocopy as needed.</p>
 
+  <div class="grief-body">
+
+    <div class="grief-date-row">
+      <span class="grief-date-label">Week of:</span>
+      <div class="grief-date-line"></div>
+      <span class="grief-date-label" style="margin-left: 1rem;">Weeks since we said goodbye:</span>
+      <div class="grief-date-line" style="max-width: 80px;"></div>
+    </div>
+
+    <div class="grief-prompt">
+      <span class="grief-prompt-q">1. What came up this week that I wasn't expecting?</span>
+      <div class="grief-lines">
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+      </div>
+    </div>
+
+    <div class="grief-prompt">
+      <span class="grief-prompt-q">2. When did I feel their absence most this week?</span>
+      <div class="grief-lines">
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+      </div>
+    </div>
+
+    <div class="grief-prompt">
+      <span class="grief-prompt-q">3. What memory of them made me smile or feel grateful this week?</span>
+      <div class="grief-lines">
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+      </div>
+    </div>
+
+    <div class="grief-prompt">
+      <span class="grief-prompt-q">4. How am I taking care of myself right now? What do I need more of?</span>
+      <div class="grief-lines">
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+      </div>
+    </div>
+
+    <div class="grief-prompt">
+      <span class="grief-prompt-q">5. One thing I want to say to them, if I could:</span>
+      <div class="grief-lines">
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+        <div class="grief-line"></div>
+      </div>
+    </div>
+
+    <div class="grief-note">
+      There is no correct way to grieve a pet. There is no timeline you should be following. If your grief feels too heavy to carry alone, a grief counselor can help — and many specialize in pet loss. Our resources page lists several free support lines.
+    </div>
+
+  </div>
+
+  <div class="p-footer">
+    <p class="p-footer-note">Print one per week. Keep them together if you'd like a record of how things change over time. goodestgoodbye.com/resources for support.</p>
+    <span class="p-footer-brand"><span class="paw-print paw-dog"></span><span class="paw-print paw-cat"></span>Goodest Goodbye</span>
+  </div>
+</div>
 </body>
 </html>

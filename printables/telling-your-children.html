@@ -544,50 +544,66 @@ body {
 }
 
 
-/* Force single printable view */
-body { background: #F5F1EB; padding: 1rem; }
-.screen-nav { display: none; }
-@media print {
-  body { background: none; padding: 0; }
-  .back-link { display: none; }
-  @page { size: letter; margin: 0; }
-  .printable { 
-    width: 100%; min-height: 100vh; height: 100vh;
-    margin: 0; border: none; padding: 0.6in 0.75in;
-    page-break-after: avoid;
-  }
+
+/* Individual printable page overrides */
+body {
+  background: #F5F1EB;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.screen-nav { display: none !important; }
+
+.page-controls {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .back-link {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
   color: #5A5650;
   text-decoration: none;
-  padding: 0.5rem 0;
 }
 .back-link:hover { color: #2C2A27; }
 .print-btn {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1.5rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
-  padding: 0.625rem 1.5rem;
-  background: #5C6B52;
-  border: 1px solid #5C6B52;
+  padding: 0.5rem 1.25rem;
+  background: #4A5A40;
+  border: 1px solid #4A5A40;
   color: #F5F1EB;
   cursor: pointer;
   letter-spacing: 0.03em;
-  width: fit-content;
+  white-space: nowrap;
 }
 .print-btn:hover { background: #2C2A27; border-color: #2C2A27; }
+
+@media print {
+  body { background: none; padding: 0; margin: 0; }
+  .page-controls { display: none; }
+  @page { size: letter; margin: 0; }
+  .printable {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    border: none !important;
+    padding: 0.6in 0.75in;
+    page-break-after: avoid;
+    break-after: avoid;
+    background: white !important;
+  }
+}
 </style>
 </head>
 <body>
-<a href="index.html" class="back-link">← Back to all printables</a>
-<button class="print-btn" onclick="window.print()">Print this page</button>
+<div class="page-controls">
+  <a href="index.html" class="back-link">← Back to all printables</a>
+  <button class="print-btn" onclick="window.print()">Print this page</button>
+</div>
 <div class="printable">
   <div class="p-header">
     <div class="p-header-left">
@@ -597,6 +613,78 @@ body { background: #F5F1EB; padding: 1rem; }
     <div class="p-brand">Goodest Goodbye<br>goodestgoodbye.com</div>
   </div>
 
+  <p style="font-size: 0.8125rem; color: var(--text-mid); font-style: italic; margin-bottom: 1.25rem; line-height: 1.6;">Children understand more than we expect and less than we fear. The most important thing is honesty in language they can hold. These are starting points — you know your child.</p>
 
+  <div class="age-grid">
+
+    <div class="age-band">
+      <span class="age-band-label">Very young children</span>
+      <span class="age-band-sub">Under 3 years</span>
+      <div class="age-band-item">Keep it very simple. "Rosie died. She won't be coming back. We're sad."</div>
+      <div class="age-band-item">Don't expect them to understand permanence — they may ask repeatedly where the pet is. Answer calmly each time.</div>
+      <div class="age-band-item">Model your own sadness simply. "I miss her. It's okay to feel sad."</div>
+      <div class="age-band-item">Maintain their routines as much as possible.</div>
+      <div class="age-band-item">Don't involve them in the appointment unless your vet agrees it's appropriate.</div>
+      <div class="age-band-avoid">
+        <span class="avoid-label">Avoid saying</span>
+        <div class="age-band-item avoid">"Went to sleep" or "went away" — creates fear of sleep and abandonment</div>
+        <div class="age-band-item avoid">"We lost them" — implies the pet can be found</div>
+      </div>
+    </div>
+
+    <div class="age-band">
+      <span class="age-band-label">Young children</span>
+      <span class="age-band-sub">Ages 3 – 6</span>
+      <div class="age-band-item">Be direct and use real words. "Our dog is very sick and is going to die soon."</div>
+      <div class="age-band-item">Explain what death means in plain terms. "When something dies, it can't breathe or move or feel anymore. It doesn't hurt."</div>
+      <div class="age-band-item">Let them ask questions and answer honestly, even when the answers are hard.</div>
+      <div class="age-band-item">Give them a role if they want one — drawing a picture, saying goodbye, being present.</div>
+      <div class="age-band-item">Expect magical thinking — they may believe they caused it. Reassure them clearly.</div>
+      <div class="age-band-avoid">
+        <span class="avoid-label">Avoid saying</span>
+        <div class="age-band-item avoid">"Put to sleep" — creates fear of anesthesia and sleep</div>
+        <div class="age-band-item avoid">"In a better place" without more explanation</div>
+      </div>
+    </div>
+
+    <div class="age-band">
+      <span class="age-band-label">Older children</span>
+      <span class="age-band-sub">Ages 7 – 12</span>
+      <div class="age-band-item">Tell them directly and give them time to ask questions. Don't minimize or rush past the hard parts.</div>
+      <div class="age-band-item">Explain euthanasia honestly if it applies. "The vet will give her medicine that will stop her heart. It won't hurt her. We're choosing this because we love her."</div>
+      <div class="age-band-item">Let them decide whether to be present at the appointment. Respect their answer either way.</div>
+      <div class="age-band-item">Let them grieve in their own way — some children get quiet, some get angry, some seem fine and then fall apart later.</div>
+      <div class="age-band-item">Watch for grief showing up as behavior changes at school or with friends.</div>
+      <div class="age-band-avoid">
+        <span class="avoid-label">Avoid saying</span>
+        <div class="age-band-item avoid">"You need to be strong for the family"</div>
+        <div class="age-band-item avoid">"We can get a new one soon"</div>
+      </div>
+    </div>
+
+    <div class="age-band">
+      <span class="age-band-label">Teenagers</span>
+      <span class="age-band-sub">Ages 13 and up</span>
+      <div class="age-band-item">Talk to them like the young adults they are. Share your own grief honestly. Let them see that this is hard for you too.</div>
+      <div class="age-band-item">Give them agency — in the decision if appropriate, in being present, in how they grieve.</div>
+      <div class="age-band-item">Understand that their grief may look like withdrawal, irritability, or apparent indifference. Don't take any of it personally.</div>
+      <div class="age-band-item">Don't force them to process out loud or on your timeline. Make yourself available without pressure.</div>
+      <div class="age-band-item">Check in gently in the days and weeks after. A lot can surface slowly.</div>
+      <div class="age-band-avoid">
+        <span class="avoid-label">Avoid saying</span>
+        <div class="age-band-item avoid">"It's just a dog / cat" — this invalidates real grief</div>
+        <div class="age-band-item avoid">"You should be over this by now"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="font-size: 0.75rem; color: var(--text-muted); font-style: italic; margin-top: 1rem; line-height: 1.5;">If your child is struggling significantly after a pet loss, a school counselor or child therapist can help. Grief over a pet is real grief and deserves real support.</p>
+
+  <div class="p-footer">
+    <p class="p-footer-note">Share this with grandparents, teachers, or other caregivers who may need guidance on supporting your child.</p>
+    <span class="p-footer-brand"><span class="paw-print paw-dog"></span><span class="paw-print paw-cat"></span>Goodest Goodbye</span>
+  </div>
+</div>
 </body>
 </html>

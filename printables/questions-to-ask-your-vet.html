@@ -544,50 +544,66 @@ body {
 }
 
 
-/* Force single printable view */
-body { background: #F5F1EB; padding: 1rem; }
-.screen-nav { display: none; }
-@media print {
-  body { background: none; padding: 0; }
-  .back-link { display: none; }
-  @page { size: letter; margin: 0; }
-  .printable { 
-    width: 100%; min-height: 100vh; height: 100vh;
-    margin: 0; border: none; padding: 0.6in 0.75in;
-    page-break-after: avoid;
-  }
+
+/* Individual printable page overrides */
+body {
+  background: #F5F1EB;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.screen-nav { display: none !important; }
+
+.page-controls {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .back-link {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
   color: #5A5650;
   text-decoration: none;
-  padding: 0.5rem 0;
 }
 .back-link:hover { color: #2C2A27; }
 .print-btn {
-  display: block;
-  max-width: 680px;
-  margin: 0 auto 1.5rem;
   font-family: 'Source Serif 4', serif;
   font-size: 0.875rem;
-  padding: 0.625rem 1.5rem;
-  background: #5C6B52;
-  border: 1px solid #5C6B52;
+  padding: 0.5rem 1.25rem;
+  background: #4A5A40;
+  border: 1px solid #4A5A40;
   color: #F5F1EB;
   cursor: pointer;
   letter-spacing: 0.03em;
-  width: fit-content;
+  white-space: nowrap;
 }
 .print-btn:hover { background: #2C2A27; border-color: #2C2A27; }
+
+@media print {
+  body { background: none; padding: 0; margin: 0; }
+  .page-controls { display: none; }
+  @page { size: letter; margin: 0; }
+  .printable {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    border: none !important;
+    padding: 0.6in 0.75in;
+    page-break-after: avoid;
+    break-after: avoid;
+    background: white !important;
+  }
+}
 </style>
 </head>
 <body>
-<a href="index.html" class="back-link">← Back to all printables</a>
-<button class="print-btn" onclick="window.print()">Print this page</button>
+<div class="page-controls">
+  <a href="index.html" class="back-link">← Back to all printables</a>
+  <button class="print-btn" onclick="window.print()">Print this page</button>
+</div>
 <div class="printable">
   <div class="p-header">
     <div class="p-header-left">
@@ -597,6 +613,117 @@ body { background: #F5F1EB; padding: 1rem; }
     <div class="p-brand">Goodest Goodbye<br>goodestgoodbye.com</div>
   </div>
 
+  <div class="vet-questions">
+    <span class="section-divider">Understanding the prognosis</span>
 
+    <div class="question-block">
+      <span class="question-num">1.</span>
+      <span class="question-text">What is the most likely trajectory from here — what will the next few weeks or months look like for my pet?</span>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">2.</span>
+      <span class="question-text">Is there a point in this illness where suffering typically becomes significant? What does that look like?</span>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">3.</span>
+      <span class="question-text">What signs should I watch for at home that tell me things are getting worse?</span>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+
+    <span class="section-divider">Managing comfort now</span>
+
+    <div class="question-block">
+      <span class="question-num">4.</span>
+      <span class="question-text">What can we do right now to manage their pain or discomfort?</span>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">5.</span>
+      <span class="question-text">Are there medications, supplements, or diet changes that would help with quality of life?</span>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">6.</span>
+      <span class="question-text">What is the difference between palliative care and hospice care for my pet? Which applies here?</span>
+      <div class="answer-line"></div>
+    </div>
+
+    <span class="section-divider">The quality of life question</span>
+
+    <div class="question-block">
+      <span class="question-num">7.</span>
+      <span class="question-text">In your professional opinion, how would you describe my pet's quality of life right now?</span>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">8.</span>
+      <span class="question-text">When would you personally consider quality of life to be unacceptable for a pet in this condition?</span>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">9.</span>
+      <span class="question-text">If this were your pet, what would you do?</span>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+
+    <span class="section-divider">Planning ahead</span>
+
+    <div class="question-block">
+      <span class="question-num">10.</span>
+      <span class="question-text">Do you offer in-home euthanasia, or can you recommend someone who does?</span>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">11.</span>
+      <span class="question-text">How much notice do you need to schedule an end-of-life appointment?</span>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">12.</span>
+      <span class="question-text">What happens if my pet declines quickly and I need to reach you after hours?</span>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">13.</span>
+      <span class="question-text">Can you help me get a paw print or fur clipping before or at the appointment?</span>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">14.</span>
+      <span class="question-text">Do you handle aftercare (cremation, etc.) or do I arrange that separately?</span>
+      <div class="answer-line"></div>
+    </div>
+
+    <div class="question-block">
+      <span class="question-num">15.</span>
+      <span class="question-text">Is there anything I haven't asked that you think I should know?</span>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+    </div>
+  </div>
+
+  <div class="p-footer">
+    <p class="p-footer-note">It is always appropriate to ask your vet direct questions about quality of life and end-of-life options. A good vet will welcome this conversation.</p>
+    <span class="p-footer-brand"><span class="paw-print paw-dog"></span><span class="paw-print paw-cat"></span>Goodest Goodbye</span>
+  </div>
+</div>
 </body>
 </html>
