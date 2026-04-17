@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality of Life Assessment for Dogs and Cats — Goodest Goodbye</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,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">
+<meta name="description" content="A structured quality of life assessment for dogs and cats — 14 questions across 7 dimensions to help you understand what you are observing.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://goodestgoodbye.com/articles/quality-of-life-tool.html">
+<style>
+.paw-dog,.paw-dog-lg{background-image:url('../images/dog-paw.png');}
+.paw-cat,.paw-cat-lg{background-image:url('../images/cat-paw.png');}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="wordmark">Goodest Goodbye</a>
+    <ul class="nav-links" aria-label="Site navigation">
+      <li><a href="../index.html">When It's Time</a></li>
+      <li><a href="../articles/quality-of-life-tool.html">Quality of Life Tool</a></li>
+      <li><a href="../articles/index.html">Articles</a></li>
+      <li><a href="../printables/index.html">Printables</a></li>
+      <li><a href="../resources/index.html">Resources</a></li>
+      <li><a href="../about/index.html">About</a></li>
+    </ul>
+    <button class="nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="navDrawer"
+            aria-label="Open navigation menu">Menu</button>
+  </div>
+  <div class="nav-drawer" id="navDrawer" aria-label="Mobile navigation menu">
+    <ul>
+      <li><a href="../index.html">When It's Time</a></li>
+      <li><a href="../articles/quality-of-life-tool.html">Quality of Life Tool</a></li>
+      <li><a href="../articles/index.html">Articles</a></li>
+      <li><a href="../printables/index.html">Printables</a></li>
+      <li><a href="../resources/index.html">Resources</a></li>
+      <li><a href="../about/index.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+<main id="main-content" tabindex="-1">
+<section class="tool-section">
+    <div class="container">
+      <div class="tool-header">
+        <span class="section-label">Quality of life assessment</span>
+        <h2>Is it time? A quality of life assessment for dogs and cats.</h2>
+        <p>This assessment helps you observe what you're already seeing every day and understand what it means. It takes about five minutes. Answer based on your pet's experience over the past week, not just today.</p>
+        <p class="tool-disclaimer">This tool is not a substitute for veterinary advice. It is a structured way to reflect on what you're observing. If you have concerns about your pet's health, please speak with your veterinarian.</p>
+      </div>
+
+      <div class="tool-wrap" id="toolWrap" role="form" aria-label="Quality of life assessment">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progressFill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Assessment progress"></div>
+          </div>
+          <span class="progress-label" id="progressLabel">Question 1 of 14</span>
+        </div>
+
+        <!-- Questions will be injected here -->
+        <div id="toolSteps" aria-live="polite" aria-atomic="false"></div>
+
+        <div class="tool-nav" id="toolNav">
+          <button class="tool-btn-ghost" id="btnBack" onclick="toolBack()">Back</button>
+          <button class="tool-btn primary" id="btnNext" onclick="toolNext()">Continue</button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="tool-wrap tool-results" id="toolResults" aria-label="Assessment results" tabindex="-1">
+        <div id="resultBand"></div>
+        <div class="result-summary">
+          <h4>How you scored each dimension</h4>
+          <div id="scoreBreakdown"></div>
+        </div>
+        <div class="result-next" id="resultNext"></div>
+        <div style="background:var(--sage-light); border:1px solid #C8D4C2; padding:1.25rem 1.5rem; margin-top:1.5rem;">
+          <p style="font-size:0.9375rem; color:var(--sage); margin:0; font-style:italic;">Print or screenshot this page to save your results. The <a href="../printables/index.html" style="color:var(--sage);">daily tracking scorecard</a> is available as a free printable if you would like to begin tracking your pet's quality of life over time.</p>
+        </div>
+        <div class="tool-restart">
+          <button class="tool-btn-ghost" onclick="restartTool()">Start over</button>
+        </div>
+      </div>
+    </div>
+  </section>
+<div class="tool-wrap tool-results" id="toolResults" style="max-width:680px;margin:0 auto 3rem;">
+  <div id="resultBand"></div>
+  <div class="result-summary"><h4>How you scored each dimension</h4><div id="scoreBreakdown"></div></div>
+  <div class="result-next" id="resultNext"></div>
+  <div style="background:var(--sage-light);border:1px solid #C8D4C2;padding:1.25rem 1.5rem;margin-top:1.5rem;">
+    <p style="font-size:0.9375rem;color:var(--sage);margin:0;font-style:italic;">Print or screenshot this page to save your results. The <a href="../printables/index.html" style="color:var(--sage);">daily tracking scorecard</a> is available as a free printable.</p>
+  </div>
+  <div class="tool-restart" style="text-align:center;margin-top:1.5rem;">
+    <button class="tool-btn-ghost" onclick="restartTool()">Start over</button>
+  </div>
+</div>
+</main>
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="../index.html" class="wordmark">Goodest Goodbye</a>
+      <div class="paw-pair" style="margin:0.75rem 0;"><span class="paw paw-dog"></span><span class="paw paw-cat"></span></div>
+      <p>A practical guide for pet owners navigating a terminal diagnosis, making end-of-life decisions, and finding their footing in the days that follow.</p>
+    </div>
+    <nav aria-label="Footer navigation"><div class="footer-nav">
+      <div class="footer-nav-group">
+        <h3 style="font-family:\'Source Serif 4\',serif; font-size:0.8125rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.875rem;">When it's time</h3><ul>
+        <li><a href="quality-of-life-tool.html">Quality of life tool</a></li>
+        <li><a href="in-home-euthanasia.html">In-home euthanasia</a></li>
+        <li><a href="talking-to-your-vet.html">Talking to your vet</a></li>
+        <li><a href="terminal-diagnosis.html">Terminal diagnosis</a></li>
+      </ul></div>
+      <div class="footer-nav-group">
+        <h3 style="font-family:\'Source Serif 4\',serif; font-size:0.8125rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.875rem;">Planning ahead</h3><ul>
+        <li><a href="paw-prints-mementos.html">Paw prints and mementos</a></li>
+        <li><a href="pet-cremation.html">Pet cremation guide</a></li>
+        <li><a href="home-burial-laws.html">Home burial laws</a></li>
+        <li><a href="telling-your-children.html">Telling your children</a></li>
+      </ul></div>
+      <div class="footer-nav-group">
+        <h3 style="font-family:\'Source Serif 4\',serif; font-size:0.8125rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.875rem;">Resources</h3><ul>
+        <li><a href="../printables/index.html">Free printables</a></li>
+        <li><a href="../resources/index.html">Resources</a></li>
+        <li><a href="grief-support.html">Grief support</a></li>
+        <li><a href="../about/index.html">About</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Nothing here constitutes veterinary advice. Please speak with your veterinarian.</p>
+    <p>&copy; 2025 Goodest Goodbye.</p>
+  </div>
+  <p class="footer-disclosure">Some links on this site are affiliate links. If you purchase through them we may earn a small commission at no extra cost to you. This does not affect our recommendations — we only link to products and services we would suggest regardless of any affiliate relationship.</p>
+</footer>
+<script>
+const toolQuestions = [
+  {
+    dimension: 'Comfort',
+    question: 'Does your pet show signs of pain or physical discomfort?',
+    context: 'Look for: vocalizing unprompted, guarding a body part when touched, reluctance to be touched, panting while at rest, a hunched posture, or a changed facial expression.',
+    options: [
+      { label: 'Consistently — pain or discomfort appears to be a constant presence', score: 0 },
+      { label: 'Often — noticeable most days, though some moments are easier', score: 1 },
+      { label: 'Sometimes — some difficult moments, but not the overall picture', score: 2 },
+      { label: 'Rarely — occasional signs, but generally appears comfortable', score: 3 },
+      { label: 'Not at all — no signs of pain or discomfort', score: 4 },
+    ],
+    weight: 1.5
+  },
+  {
+    dimension: 'Comfort',
+    question: 'Is your pet able to find a comfortable resting position?',
+    context: 'Pets in pain often shift frequently, avoid lying down, or choose positions that seem effortful. A pet who settles and stays settled is generally more comfortable.',
+    options: [
+      { label: 'No — they seem unable to find comfort regardless of position', score: 0 },
+      { label: 'With difficulty — they settle eventually but it takes effort', score: 1 },
+      { label: 'Sometimes — some positions work, others seem difficult', score: 2 },
+      { label: 'Mostly — they settle without much trouble', score: 3 },
+      { label: 'Yes — they rest easily and stay settled', score: 4 },
+    ],
+    weight: 1
+  },
+  {
+    dimension: 'Eating and drinking',
+    question: 'How is your pet eating compared to their normal baseline?',
+    context: 'Focus on actual intake, not enthusiasm. A pet who eats half their meal is different from one who refuses food entirely. Factor in any appetite-stimulating medications.',
+    options: [
+      { label: 'Refusing food entirely', score: 0 },
+      { label: 'Eating less than a quarter of a normal meal', score: 1 },
+      { label: 'Eating roughly half of a normal meal', score: 2 },
+      { label: 'Eating most of a normal meal with some encouragement', score: 3 },
+      { label: 'Eating normally or near-normally', score: 4 },
+    ],
+    weight: 1
+  },
+  {
+    dimension: 'Eating and drinking',
+    question: 'Is your pet drinking enough water?',
+    context: 'Dehydration is a serious concern in declining pets. Signs include dry or tacky gums, lethargy, and skin that does not spring back quickly when gently pinched.',
+    options: [
+      { label: 'Not drinking at all, or showing signs of dehydration', score: 0 },
+      { label: 'Drinking very little', score: 1 },
+      { label: 'Drinking some, but noticeably less than usual', score: 2 },
+      { label: 'Drinking close to their normal amount', score: 3 },
+      { label: 'Drinking normally', score: 4 },
+    ],
+    weight: 1
+  },
+  {
+    dimension: 'Hygiene and dignity',
+    question: 'Is your pet able to maintain basic physical dignity?',
+    context: 'This includes: ability to move away from their own waste, absence of bedsores or pressure wounds from immobility, and whether they appear distressed by their physical condition.',
+    options: [
+      { label: 'No — they are regularly lying in waste or have sores from immobility', score: 0 },
+      { label: 'Often struggling — this is a frequent issue', score: 1 },
+      { label: 'Sometimes — occasional accidents or difficulty, but manageable', score: 2 },
+      { label: 'Mostly — minor issues but their dignity is largely intact', score: 3 },
+      { label: 'Yes — no significant hygiene concerns', score: 4 },
+    ],
+    weight: 1
+  },
+  {
+    dimension: 'Mobility',
+    question: 'Can your pet reach the things they need — water, food, a comfortable spot?',
+    context: 'Scale this to your pet\'s current condition, not their healthy baseline. The question is whether they can access what they need for basic daily life.',
+    options: [
+      { label: 'No — they cannot move to meet their basic needs without help', score: 0 },
+      { label: 'With great difficulty — movement is labored and often unsuccessful', score: 1 },
+      { label: 'With some difficulty — they manage but it takes visible effort', score: 2 },
+      { label: 'Mostly — some limitation but generally able to get where they need to go', score: 3 },
+      { label: 'Yes — mobility is not a significant limitation right now', score: 4 },
+    ],
+    weight: 1
+  },
+  {
+    dimension: 'Mobility',
+    question: 'How does your pet respond when you approach or interact with them?',
+    context: 'A pet who lifts their head, makes eye contact, shifts toward you, or shows any physical acknowledgment of your presence is demonstrating engagement with the world.',
+    options: [
+      { label: 'No response — they do not react to my presence', score: 0 },
+      { label: 'Minimal — a flicker of awareness at most', score: 1 },
+      { label: 'Some — they acknowledge me but response is limited', score: 2 },
+      { label: 'Clear — they respond to me, though less than before', score: 3 },
+      { label: 'Normal or near-normal — their response to me is unchanged', score: 4 },
+    ],
+    weight: 1
+  },
+  {
+    dimension: 'Happiness and connection',
+    question: 'Does your pet still show interest in things that used to matter to them?',
+    context: 'This might be a favorite toy, the sound of their leash, a spot by the window, food smells, or the arrival of a family member. Any sign of interest counts.',
+    options: [
+      { label: 'No — they show no interest in anything that used to engage them', score: 0 },
+      { label: 'Rarely — a faint response occasionally, but mostly absent', score: 1 },
+      { label: 'Sometimes — occasional moments of interest', score: 2 },
+      { label: 'Often — clear engagement with some things they used to love', score: 3 },
+      { label: 'Yes — their engagement with the world is largely intact', score: 4 },
+    ],
+    weight: 1.25
+  },
+  {
+    dimension: 'Happiness and connection',
+    question: 'Does your pet still seek connection with you?',
+    context: 'This includes: moving toward you when you enter the room, accepting touch without pulling away, making eye contact, settling near you by choice.',
+    options: [
+      { label: 'No — they withdraw from contact or seem indifferent to my presence', score: 0 },
+      { label: 'Rarely — occasional moments of connection but largely withdrawn', score: 1 },
+      { label: 'Sometimes — some connection, but less than their normal self', score: 2 },
+      { label: 'Often — they still seek me out and accept closeness', score: 3 },
+      { label: 'Yes — our connection feels largely unchanged', score: 4 },
+    ],
+    weight: 1.25
+  },
+  {
+    dimension: 'Overall pattern',
+    question: 'Over the past two weeks, how would you describe the balance of difficult days versus comfortable ones?',
+    context: 'A difficult day is one where your pet appeared to be suffering, struggling, or disengaged. A comfortable day is one where they seemed at ease, engaged, or like themselves.',
+    options: [
+      { label: 'Almost all difficult days — comfortable moments are rare', score: 0 },
+      { label: 'More difficult than comfortable — the trend is clearly downward', score: 1 },
+      { label: 'Roughly equal — hard to say which direction things are going', score: 2 },
+      { label: 'More comfortable than difficult — there are still good days', score: 3 },
+      { label: 'Mostly comfortable days — the difficult moments are the exception', score: 4 },
+    ],
+    weight: 1.5
+  },
+  {
+    dimension: 'Overall pattern',
+    question: 'Compared to one month ago, how is your pet doing?',
+    context: 'This question asks about trajectory, not current state. A pet who is stable at a reduced level is different from one who is continuing to decline.',
+    options: [
+      { label: 'Much worse — the decline has been significant and sustained', score: 0 },
+      { label: 'Noticeably worse — a clear downward trend', score: 1 },
+      { label: 'Somewhat worse — declining but not dramatically', score: 2 },
+      { label: 'About the same — stable, even if not ideal', score: 3 },
+      { label: 'The same or better — no significant decline over the past month', score: 4 },
+    ],
+    weight: 1.25
+  },
+  {
+    dimension: 'Overall pattern',
+    question: 'When you imagine your pet a month from now on the current trajectory, what do you see?',
+    context: 'This is a forward-looking question about where things appear to be heading based on what you\'ve been observing.',
+    options: [
+      { label: 'I believe they will be suffering significantly', score: 0 },
+      { label: 'I expect things will be notably harder for them', score: 1 },
+      { label: 'I\'m not sure — it\'s hard to predict', score: 2 },
+      { label: 'I think they may be stable or the decline will be slow', score: 3 },
+      { label: 'I expect things to remain much as they are now', score: 4 },
+    ],
+    weight: 1
+  },
+  {
+    dimension: 'Your sense of it',
+    question: 'Setting aside what you think you should feel — what does your gut tell you about how your pet is doing right now?',
+    context: 'Owners know their animals. Research consistently shows that owners are accurate observers of their pet\'s wellbeing. This question is not a trick. Your instinct is a meaningful data point.',
+    options: [
+      { label: 'My gut tells me they are suffering and that things are very hard for them', score: 0 },
+      { label: 'Something feels significantly wrong — this is not okay for them', score: 1 },
+      { label: 'I\'m genuinely uncertain — I can see it both ways', score: 2 },
+      { label: 'I think they\'re coping, even if things aren\'t easy', score: 3 },
+      { label: 'My gut tells me they are still okay — still themselves', score: 4 },
+    ],
+    weight: 1.5
+  },
+  {
+    dimension: 'Your sense of it',
+    question: 'When you picture what your pet would want, if they could tell you, what do you believe that would be?',
+    context: 'This is the hardest question in the assessment. There is no right answer. It is here because many owners find that, once they sit with it, they already know.',
+    options: [
+      { label: 'I believe they would want this to be over — they are ready', score: 0 },
+      { label: 'I think they may be ready, even if I am not', score: 1 },
+      { label: 'I genuinely don\'t know', score: 2 },
+      { label: 'I think they still have some time left that is worth living', score: 3 },
+      { label: 'I believe they still want to be here — they are not ready', score: 4 },
+    ],
+    weight: 1.5
+  }
+];
+
+let currentStep = 0;
+let answers = new Array(toolQuestions.length).fill(null);
+
+function buildTool() {
+  const container = document.getElementById('toolSteps');
+  container.innerHTML = '';
+  toolQuestions.forEach((q, i) => {
+    const step = document.createElement('div');
+    step.className = 'tool-step' + (i === 0 ? ' active' : '');
+    step.id = 'step-' + i;
+    step.innerHTML = `
+      <span class="tool-dimension-label">${q.dimension}</span>
+      <div class="tool-question">${q.question}</div>
+      <div class="tool-context">${q.context}</div>
+      <ul class="tool-options">
+        ${q.options.map((opt, j) => `
+          <li class="tool-option ${answers[i] === j ? 'selected' : ''}" onclick="selectOption(${i}, ${j})">
+            <div class="tool-option-indicator"></div>
+            <span class="tool-option-text">${opt.label}</span>
+          </li>
+        `).join('')}
+      </ul>
+    `;
+    container.appendChild(step);
+  });
+  updateProgress();
+  updateNav();
+}
+
+function selectOption(stepIndex, optionIndex) {
+  answers[stepIndex] = optionIndex;
+  document.querySelectorAll(`#step-${stepIndex} .tool-option`).forEach((el, i) => {
+    el.classList.toggle('selected', i === optionIndex);
+  });
+  document.getElementById('btnNext').disabled = false;
+}
+
+function updateProgress() {
+  const pct = ((currentStep) / toolQuestions.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `Question ${currentStep + 1} of ${toolQuestions.length}`;
+}
+
+function updateNav() {
+  const backBtn = document.getElementById('btnBack');
+  const nextBtn = document.getElementById('btnNext');
+  backBtn.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
+  nextBtn.textContent = currentStep === toolQuestions.length - 1 ? 'See my results' : 'Continue';
+  nextBtn.disabled = answers[currentStep] === null;
+}
+
+function toolNext() {
+  if (answers[currentStep] === null) return;
+  if (currentStep === toolQuestions.length - 1) {
+    showResults();
+    return;
+  }
+  document.getElementById('step-' + currentStep).classList.remove('active');
+  currentStep++;
+  document.getElementById('step-' + currentStep).classList.add('active');
+  updateProgress();
+  updateNav();
+  document.getElementById('toolWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function toolBack() {
+  if (currentStep === 0) return;
+  document.getElementById('step-' + currentStep).classList.remove('active');
+  currentStep--;
+  document.getElementById('step-' + currentStep).classList.add('active');
+  updateProgress();
+  updateNav();
+}
+
+function calculateScore() {
+  let total = 0;
+  let maxTotal = 0;
+  const byDimension = {};
+
+  toolQuestions.forEach((q, i) => {
+    const answerIdx = answers[i];
+    const score = answerIdx !== null ? q.options[answerIdx].score : 0;
+    const weighted = score * q.weight;
+    const maxWeighted = 4 * q.weight;
+    total += weighted;
+    maxTotal += maxWeighted;
+    if (!byDimension[q.dimension]) byDimension[q.dimension] = { score: 0, max: 0 };
+    byDimension[q.dimension].score += weighted;
+    byDimension[q.dimension].max += maxWeighted;
+  });
+
+  return { pct: Math.round((total / maxTotal) * 100), byDimension };
+}
+
+function showResults() {
+  document.getElementById('toolWrap').style.display = 'none';
+  const results = document.getElementById('toolResults');
+  results.classList.add('active');
+  results.style.display = 'block';
+
+  const { pct, byDimension } = calculateScore();
+
+  let bandClass, bandLabel, bandTitle, bandText, nextSteps;
+
+  if (pct >= 65) {
+    bandClass = 'band-1';
+    bandLabel = 'Monitoring closely';
+    bandTitle = 'Quality of life appears stable for now.';
+    bandText = 'Based on what you\'ve described, your pet is experiencing some challenges but is managing day to day. This is a good time to establish a baseline with your vet, begin tracking daily observations, and prepare yourself — practically and emotionally — for what may come. Reassess in one to two weeks, or sooner if things change.';
+    nextSteps = [
+      'Print the daily quality of life scorecard and begin tracking — one entry per day.',
+      'Schedule a quality of life conversation with your vet if you haven\'t already.',
+      'Download the "questions to ask your vet" checklist and bring it to your next appointment.',
+      'Reassess with this tool in one to two weeks.'
+    ];
+  } else if (pct >= 35) {
+    bandClass = 'band-2';
+    bandLabel = 'The window is narrowing';
+    bandTitle = 'Several dimensions are showing significant strain.';
+    bandText = 'Based on what you\'ve described, your pet is experiencing difficulty across multiple areas of their daily life. This is a meaningful signal. It does not tell you exactly when, but it does suggest that this is a good time to have specific conversations with your vet, begin making practical arrangements, and spend unhurried time with your pet.';
+    nextSteps = [
+      'Schedule a dedicated quality of life appointment with your vet — not a routine visit, a focused conversation.',
+      'Download the planning checklist and begin working through it at your own pace.',
+      'Research in-home euthanasia options in your area so you have that information ready when you need it.',
+      'Consider whether the people who love your pet have had a chance to say goodbye.'
+    ];
+  } else {
+    bandClass = 'band-3';
+    bandLabel = 'Your pet is telling you something';
+    bandTitle = 'Based on what you\'ve described, your pet is experiencing significant diminishment.';
+    bandText = 'Across nearly every dimension you\'ve described, your pet is struggling. Many owners in this situation find that acting sooner rather than later is the kindest choice — not because more time isn\'t precious, but because their pet\'s experience of that time matters deeply. You know your animal. If your gut has been telling you something, it is worth listening to.';
+    nextSteps = [
+      'Call your vet today to discuss what you\'ve observed. Read them your answers if that helps.',
+      'Look into in-home euthanasia options — our provider directory is a starting point.',
+      'Download the planning checklist. Working through it now, while you have time, is easier than in the hours before.',
+      'You do not have to do this alone. Tell the people who love your pet what is happening.'
+    ];
+  }
+
+  document.getElementById('resultBand').innerHTML = `
+    <div class="result-band ${bandClass}">
+      <span class="result-band-label">${bandLabel}</span>
+      <h3>${bandTitle}</h3>
+      <p>${bandText}</p>
+    </div>
+  `;
+
+  const breakdownHTML = Object.entries(byDimension).map(([dim, data]) => {
+    const dimPct = Math.round((data.score / data.max) * 100);
+    return `
+      <div class="result-score-row">
+        <span class="result-score-name">${dim}</span>
+        <div class="result-score-bar-wrap">
+          <div class="result-score-bar" style="width: ${dimPct}%"></div>
+        </div>
+        <span class="result-score-val">${dimPct}%</span>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('scoreBreakdown').innerHTML = breakdownHTML;
+
+  document.getElementById('resultNext').innerHTML = `
+    <h4>Suggested next steps</h4>
+    <ul>${nextSteps.map(s => `<li>${s}</li>`).join('')}</ul>
+  `;
+
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function submitEmail() {
+  const email = document.getElementById('emailInput').value;
+  if (!email || !email.includes('@')) {
+    document.getElementById('emailInput').focus();
+    return;
+  }
+  document.querySelector('.email-capture').innerHTML = `
+    <p style="color: var(--sage); font-style: italic;">Your results and the daily tracking scorecard are on their way. Check your inbox in the next few minutes.</p>
+  `;
+}
+
+function restartTool() {
+  currentStep = 0;
+  answers = new Array(toolQuestions.length).fill(null);
+  document.getElementById('toolResults').classList.remove('active');
+  document.getElementById('toolResults').style.display = 'none';
+  document.getElementById('toolWrap').style.display = 'block';
+  buildTool();
+  document.getElementById('toolWrap').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Init
+buildTool();
+</script>
+<script src="../js/main.js"></script>
+</body></html>
