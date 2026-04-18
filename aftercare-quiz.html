@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Aftercare Decision Engine | Goodest Goodbye</title>
+<meta name="description" content="Not sure which pet memorial is right for you? Answer 3 questions and get a personalized recommendation — from aquamation to memorial diamonds to living trees.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://goodestgoodbye.com/aftercare-quiz.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.tool-hero { padding:3.5rem 0 3rem; border-bottom:1px solid var(--border); }
+.tool-hero .container { max-width:var(--max); }
+.tool-tag { display:inline-block; background:var(--sage); color:#fff; font-family:'Source Serif 4',serif; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; padding:0.3rem 0.85rem; border-radius:2rem; margin-bottom:1.25rem; }
+.tool-hero h1 { font-size:clamp(1.8rem,4vw,2.5rem); margin-bottom:0.75rem; }
+.tool-hero p { font-size:1rem; color:var(--text-muted); }
+.engine-outer { max-width:var(--max); margin:0 auto; padding:3rem 2rem 5rem; }
+.progress-wrap { margin-bottom:2.25rem; }
+.progress-meta { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem; }
+.progress-step-label { font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--sage); font-family:'Source Serif 4',serif; }
+.progress-count { font-size:0.78rem; color:var(--text-muted); }
+.progress-track { height:3px; background:var(--border); border-radius:2px; }
+.progress-fill { height:3px; background:var(--sage-mid); border-radius:2px; transition:width 0.4s ease; width:0%; }
+.question-text { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:500; color:var(--text); line-height:1.35; margin-bottom:1.5rem; }
+.options-list { display:flex; flex-direction:column; gap:10px; margin-bottom:2rem; }
+.option-btn { display:flex; align-items:flex-start; gap:14px; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:15px 18px; cursor:pointer; text-align:left; width:100%; min-height:44px; transition:border-color 0.15s, background 0.15s; font-family:'Source Serif 4',serif; }
+.option-btn:hover { border-color:var(--sage-mid); background:var(--sage-light); }
+.option-btn.selected { border:2px solid var(--sage-mid); background:var(--sage-light); }
+.option-letter { width:30px; height:30px; border-radius:50%; background:var(--bg); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:var(--text-muted); flex-shrink:0; margin-top:1px; transition:background 0.15s, color 0.15s; font-family:'Source Serif 4',serif; }
+.option-btn.selected .option-letter { background:var(--sage-mid); color:#fff; border-color:var(--sage-mid); }
+.option-content { flex:1; min-width:0; }
+.option-label { font-size:1rem; font-weight:500; color:var(--text); display:block; margin-bottom:2px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; }
+.option-desc { font-size:0.875rem; color:var(--text-muted); line-height:1.45; font-family:'Source Serif 4',serif; }
+.nav-row { display:flex; gap:10px; align-items:center; }
+.btn-primary { background:var(--sage); color:#fff; border:none; border-radius:6px; font-family:'Source Serif 4',serif; font-size:0.95rem; font-weight:500; padding:11px 26px; cursor:pointer; transition:background 0.15s; min-height:44px; }
+.btn-primary:hover { background:var(--sage); opacity:0.85; }
+.btn-primary:disabled { background:var(--border); color:var(--text-muted); cursor:default; opacity:1; }
+.btn-ghost { background:transparent; color:var(--text-muted); border:1px solid var(--border); border-radius:6px; font-family:'Source Serif 4',serif; font-size:0.95rem; padding:11px 20px; cursor:pointer; transition:background 0.15s; min-height:44px; }
+.btn-ghost:hover { background:var(--bg-card); }
+.results-eyebrow { font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--sage); margin-bottom:0.4rem; font-family:'Source Serif 4',serif; }
+.results-headline { font-family:'Cormorant Garamond',serif; font-size:1.75rem; font-weight:500; color:var(--text); line-height:1.3; margin-bottom:0.6rem; }
+.results-summary { font-size:0.93rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.75rem; }
+.result-card { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:1.4rem 1.6rem; margin-bottom:14px; }
+.result-card.primary { border:2px solid var(--sage-mid); }
+.result-card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:0.6rem; }
+.result-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; color:var(--text); line-height:1.3; }
+.result-badge { font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; padding:3px 11px; border-radius:2rem; white-space:nowrap; flex-shrink:0; margin-top:3px; }
+.badge-primary { background:var(--sage-light); color:var(--sage); }
+.badge-secondary { background:var(--bg-card); color:var(--text-muted); border:1px solid var(--border); }
+.result-why { font-size:0.93rem; color:var(--text-mid); line-height:1.6; margin-bottom:0.85rem; }
+.result-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:0.85rem; }
+.result-tag { font-size:0.78rem; font-weight:500; background:var(--bg); color:var(--text-muted); border:1px solid var(--border); border-radius:2rem; padding:3px 11px; }
+.result-link { display:inline-block; font-size:0.875rem; font-weight:500; color:var(--sage); text-decoration:underline; text-decoration-color:var(--sage-mid); text-underline-offset:3px; }
+.result-link:hover { color:var(--clay); }
+.divider { height:1px; background:var(--border); margin:2rem 0; }
+.related-label { font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.85rem; font-family:'Source Serif 4',serif; }
+.related-links { display:flex; flex-direction:column; gap:8px; }
+.related-link-item { display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:12px 16px; text-decoration:none; transition:border-color 0.15s, background 0.15s; }
+.related-link-item:hover { border-color:var(--sage-mid); background:var(--sage-light); text-decoration:none; }
+.related-link-dot { width:7px; height:7px; border-radius:50%; background:var(--sage-mid); flex-shrink:0; }
+.related-link-text { font-size:0.93rem; font-weight:500; color:var(--sage); font-family:'Cormorant Garamond',serif; font-size:1.05rem; }
+.related-link-sub { font-size:0.82rem; color:var(--text-muted); margin-left:auto; padding-left:10px; white-space:nowrap; font-family:'Source Serif 4',serif; }
+.restart-row { margin-top:1.5rem; }
+@media(max-width:600px){ .tool-hero{padding:2.5rem 0 2rem;} .engine-outer{padding:2rem 1.25rem 4rem;} .related-link-sub{display:none;} }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">Goodest Goodbye</a>
+    <ul class="nav-links" aria-label="Site navigation">
+      <li><a href="index.html">When It's Time</a></li>
+      <li><a href="articles/quality-of-life-tool.html">Quality of Life Tool</a></li>
+      <li><a href="articles/index.html">Articles</a></li>
+      <li><a href="printables/index.html">Printables</a></li>
+      <li><a href="resources/index.html">Resources</a></li>
+      <li><a href="about/index.html">About</a></li>
+      <li><a href="editorial-policy/index.html">Editorial policy</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navDrawer" aria-label="Open navigation menu">Menu</button>
+  </div>
+  <div class="nav-drawer" id="navDrawer" aria-label="Mobile navigation menu">
+    <ul>
+      <li><a href="index.html">When It's Time</a></li>
+      <li><a href="articles/quality-of-life-tool.html">Quality of Life Tool</a></li>
+      <li><a href="articles/index.html">Articles</a></li>
+      <li><a href="printables/index.html">Printables</a></li>
+      <li><a href="resources/index.html">Resources</a></li>
+      <li><a href="about/index.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+<main id="main-content" tabindex="-1">
+<div class="tool-hero">
+  <div class="container">
+    <span class="tool-tag">Interactive tool</span>
+    <h1>Pet Aftercare Decision Engine</h1>
+    <p>Three questions. A personalized recommendation based on what matters most to you.</p>
+  </div>
+</div>
+<div class="engine-outer">
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span class="progress-step-label" id="step-label">Question 1 of 3</span>
+      <span class="progress-count" id="step-count">0% complete</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+  <div id="quiz-area"></div>
+  <div id="results-area" style="display:none"></div>
+</div>
+</main>
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="wordmark">Goodest Goodbye</a>
+      <div class="paw-pair" style="margin:0.75rem 0;"><span class="paw paw-dog" style="background-image:url('images/dog-paw.png');"></span><span class="paw paw-cat" style="background-image:url('images/cat-paw.png');"></span></div>
+      <p>A practical guide for pet owners navigating end-of-life decisions.</p>
+    </div>
+    <nav aria-label="Footer navigation"><div class="footer-nav">
+      <div class="footer-nav-group"><h4>Resources</h4><ul>
+        <li><a href="resources/index.html">Provider directory</a></li>
+        <li><a href="articles/grief-support.html">Grief support</a></li>
+        <li><a href="printables/index.html">Free printables</a></li>
+      </ul></div>
+      <div class="footer-nav-group"><h4>Articles</h4><ul>
+        <li><a href="articles/quality-of-life-tool.html">Quality of life tool</a></li>
+        <li><a href="articles/in-home-euthanasia.html">In-home euthanasia</a></li>
+        <li><a href="articles/pet-cremation.html">Pet cremation guide</a></li>
+      </ul></div>
+      <div class="footer-nav-group"><h4>Site</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about/index.html">About</a></li>
+        <li><a href="aftercare-quiz.html">Aftercare quiz</a></li>
+      </ul></div>
+    </div></nav>
+  </div>
+  <div class="footer-bottom"><p>Nothing here constitutes veterinary advice.</p><p>&copy; 2026 Goodest Goodbye.</p></div>
+  <p class="footer-disclosure">Some links on this site are affiliate links. If you purchase through them we may earn a small commission at no extra cost to you. This does not affect our recommendations — we only link to products and services we would suggest regardless of any affiliate relationship. Read our full <a href="editorial-policy/index.html">editorial policy</a>.</p>
+</footer>
+<script src="js/main.js"></script>
+<script>
+var questions=[{id:"priority",text:"What matters most to you about how your pet is memorialized?",options:[{id:"eco",label:"Eco-friendliness",desc:"Minimize environmental impact and return them to the earth gently."},{id:"tangible",label:"Something to hold or wear",desc:"A physical object — jewelry, glass art, a diamond — that keeps them close."},{id:"living",label:"Something that grows",desc:"A living memorial that continues after they're gone."},{id:"presence",label:"Keeping their presence at home",desc:"A meaningful urn or keepsake that stays with you."}]},{id:"budget",text:"What is your budget for this memorial?",options:[{id:"low",label:"Under $200",desc:"Accessible and still dignified. Good options exist at every price point."},{id:"mid",label:"$200 – $600",desc:"Room for quality craftsmanship and meaningful materials."},{id:"high",label:"$600 – $1,000+",desc:"Premium options including fine art, glass, or lab-grown gemstones."}]},{id:"portability",text:"Do you want something you can take with you if you move?",options:[{id:"yes",label:"Yes — portability matters",desc:"I may move, or I want to keep them with me wherever life takes me."},{id:"no",label:"No — putting down roots is fine",desc:"I'm settled. A permanent outdoor memorial feels right."}]}];
+
+var results={aquamation:{name:"Water cremation (aquamation)",why:"You prioritized eco-friendliness. Aquamation uses no combustion, produces no emissions, and returns roughly 20% more ash than flame cremation. It's the clearest green choice when available in your area.",tags:["No emissions","~20% more ash returned","$250–$600 private","Availability varies by state"],article:{label:"How to find a provider near you",href:"articles/article-e-find-provider.html"}},shroud:{name:"Biodegradable shroud or scattering urn",why:"Within a smaller budget, a natural burial shroud or biodegradable urn is a genuinely dignified eco-option. Simple, meaningful, and aligned with returning your pet to the earth.",tags:["$30–$150","Biodegradable materials","Home burial or scattering"],article:{label:"Green aftercare guide",href:"articles/article-a-green-aftercare.html"}},spiritPieces:{name:"Glass art — Spirit Pieces",why:"You want something tangible and beautiful to hold. Spirit Pieces fuses ashes into hand-blown glass — a paperweight or pendant with real weight and presence. Only needs a tablespoon or two of ash.",tags:["$150–$500+","3–6 weeks turnaround","1–2 tbsp ash needed","Portable"],article:{label:"See all 7 art and jewelry options",href:"articles/article-c-ash-art-jewelry.html"}},eterneva:{name:"Memorial diamond — Eterneva",why:"With a higher budget and a preference for something wearable that lasts forever, Eterneva extracts carbon from your pet's ashes and grows a real lab diamond. The most enduring memorial on this list.",tags:["$600–$3,000+","7–11 months","Wearable forever","Portable"],article:{label:"See all 7 art and jewelry options",href:"articles/article-c-ash-art-jewelry.html"}},glassJewelry:{name:"Cremation glass jewelry",why:"Portable, wearable, and made to carry with you. Independent glass artists create pendants and beads incorporating ash — subtle enough to wear every day, meaningful enough to matter.",tags:["$40–$300","2–5 weeks turnaround","Portable","Subtle and wearable"],article:{label:"See all 7 art and jewelry options",href:"articles/article-c-ash-art-jewelry.html"}},livingUrn:{name:"The Living Urn — memorial tree",why:"You want growth and you're settled where you are. The Living Urn uses a proprietary soil buffer to grow a real tree from cremation ashes. Best if you own your home and plan to stay.",tags:["$130–$250","Outdoor, permanent","Climate-dependent","Sapling guarantee"],article:{label:"Honest review of The Living Urn",href:"articles/article-d-living-urn.html"}},indoorPlant:{name:"The Living Urn — indoor plant system",why:"You want a living memorial but need something that moves with you. The Living Urn's indoor system applies the same ash-buffering soil principle to houseplants.",tags:["$100–$200","Portable","Houseplant-based","Works in apartments"],article:{label:"Honest review of The Living Urn",href:"articles/article-d-living-urn.html"}},urn:{name:"A quality urn or keepsake vessel",why:"Keeping their presence at home with a thoughtfully chosen urn is a completely valid and meaningful choice. A well-made urn is a dignified, permanent way to keep your pet close.",tags:["$30–$300+","Immediate","Many styles available","Portable"],article:null}};
+
+function getRecommendations(a){var p=a.priority,b=a.budget,m=a.portability,primary,secondary;if(p==="eco"){if(b==="low"){primary=results.shroud;secondary=results.aquamation;}else{primary=results.aquamation;secondary=results.shroud;}}else if(p==="tangible"){if(b==="high"){primary=results.eterneva;secondary=results.spiritPieces;}else if(b==="mid"){primary=m==="yes"?results.glassJewelry:results.spiritPieces;secondary=m==="yes"?results.spiritPieces:results.glassJewelry;}else{primary=results.glassJewelry;secondary=results.spiritPieces;}}else if(p==="living"){if(m==="yes"){primary=results.indoorPlant;secondary=results.livingUrn;}else{primary=results.livingUrn;secondary=results.indoorPlant;}}else{primary=results.urn;if(b==="high")secondary=results.eterneva;else if(b==="mid")secondary=results.spiritPieces;else secondary=results.shroud;}return{primary:primary,secondary:secondary};}
+
+var letters=["A","B","C","D"],answers={},currentQ=0;
+
+function updateProgress(s){var pct=Math.round((s/questions.length)*100);document.getElementById("progress-fill").style.width=pct+"%";document.getElementById("step-label").textContent=s<questions.length?"Question "+(s+1)+" of "+questions.length:"Your results";document.getElementById("step-count").textContent=pct+"% complete";}
+
+function renderQuestion(){var q=questions[currentQ];updateProgress(currentQ);var sel=answers[q.id];document.getElementById("quiz-area").innerHTML='<div class="question-text">'+q.text+'</div><div class="options-list">'+q.options.map(function(o,i){return'<button class="option-btn'+(sel===o.id?" selected":"")+'" onclick="selectOption(\''+q.id+'\',\''+o.id+'\',this)"><div class="option-letter">'+letters[i]+'</div><div class="option-content"><span class="option-label">'+o.label+'</span><span class="option-desc">'+o.desc+'</span></div></button>';}).join('')+'</div><div class="nav-row">'+(currentQ>0?'<button class="btn-ghost" onclick="goBack()">Back</button>':'')+'<button class="btn-primary" id="next-btn" onclick="goNext()"'+(sel?'':' disabled')+'>'+(currentQ<questions.length-1?'Next question':'See my recommendations')+'</button></div>';}
+
+function selectOption(qid,oid,btn){answers[qid]=oid;document.querySelectorAll(".option-btn").forEach(function(b){b.classList.remove("selected");});btn.classList.add("selected");document.getElementById("next-btn").disabled=false;}
+function goNext(){if(currentQ<questions.length-1){currentQ++;renderQuestion();}else{showResults();}}
+function goBack(){if(currentQ>0){currentQ--;renderQuestion();}}
+
+function buildSummary(a){var pm={eco:"eco-conscious aftercare",tangible:"something to hold or wear",living:"a living memorial",presence:"keeping them close at home"};var bm={low:"under $200",mid:"$200–$600",high:"$600 or more"};var pm2={yes:"portable",no:"permanent"};return"You prioritized <strong>"+pm[a.priority]+"</strong>, with a budget of <strong>"+bm[a.budget]+"</strong> and a preference for something <strong>"+pm2[a.portability]+"</strong>.";}
+
+function cardHTML(rec,isPrimary){var aLink=rec.article?'<a class="result-link" href="'+rec.article.href+'">'+rec.article.label+' &rarr;</a>':'';return'<div class="result-card'+(isPrimary?" primary":'')+'"><div class="result-card-top"><div class="result-name">'+rec.name+'</div><span class="result-badge '+(isPrimary?"badge-primary":"badge-secondary")+'">'+(isPrimary?"Best match":"Also consider")+'</span></div><div class="result-why">'+rec.why+'</div><div class="result-tags">'+rec.tags.map(function(t){return'<span class="result-tag">'+t+'</span>';}).join('')+'</div>'+aLink+'</div>';}
+
+function showResults(){updateProgress(questions.length);document.getElementById("quiz-area").style.display="none";var ra=document.getElementById("results-area");ra.style.display="block";var recs=getRecommendations(answers);ra.innerHTML='<div class="results-eyebrow">Your results</div><div class="results-headline">Here\'s what fits your situation</div><div class="results-summary">'+buildSummary(answers)+'</div>'+cardHTML(recs.primary,true)+cardHTML(recs.secondary,false)+'<div class="divider"></div><div class="related-label">Read the full guides</div><div class="related-links"><a class="related-link-item" href="articles/article-a-green-aftercare.html"><span class="related-link-dot"></span><span class="related-link-text">The pet parent\'s guide to green aftercare</span><span class="related-link-sub">Article A</span></a><a class="related-link-item" href="articles/article-b-water-vs-flame.html"><span class="related-link-dot"></span><span class="related-link-text">Water cremation vs. flame cremation</span><span class="related-link-sub">Article B</span></a><a class="related-link-item" href="articles/article-c-ash-art-jewelry.html"><span class="related-link-dot"></span><span class="related-link-text">7 ways to turn ashes into art and jewelry</span><span class="related-link-sub">Article C</span></a><a class="related-link-item" href="articles/article-d-living-urn.html"><span class="related-link-dot"></span><span class="related-link-text">An honest review of The Living Urn</span><span class="related-link-sub">Article D</span></a><a class="related-link-item" href="articles/article-e-find-provider.html"><span class="related-link-dot"></span><span class="related-link-text">How to find a pet aquamation provider near you</span><span class="related-link-sub">Article E</span></a></div><div class="restart-row"><button class="btn-ghost" onclick="restart()">Start over</button></div>';}
+
+function restart(){Object.keys(answers).forEach(function(k){delete answers[k];});currentQ=0;document.getElementById("results-area").style.display="none";document.getElementById("quiz-area").style.display="block";renderQuestion();}
+
+renderQuestion();
+</script>
+</body>
+</html>
